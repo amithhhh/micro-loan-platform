@@ -1,21 +1,8 @@
-pub fn add(left: u64, right: u64) -> u64 {
-    left + right
-}
-
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
-}
-use soroban_sdk::{contract, contractimpl, Env, Address, Vec, log};
+use soroban_sdk::{contract, contractimpl, Env, Address, Vec, log, Bytes};
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Clone)]
+#[contracttype]
 struct Loan {
     borrower: Address,
     amount: i64,
@@ -26,6 +13,7 @@ struct Loan {
 }
 
 #[derive(Serialize, Deserialize)]
+#[contracttype]
 struct LendingPool {
     total_funds: i64,
     loans: Vec<Loan>,

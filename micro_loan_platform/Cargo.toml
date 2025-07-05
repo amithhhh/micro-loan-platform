@@ -4,11 +4,11 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-soroban-sdk = "0.9.2"
+soroban-sdk = "20.0.0"  # Use latest version
 serde = { version = "1.0", features = ["derive"] }
 
 [dev-dependencies]
-soroban-sdk = { version = "0.9.2", features = ["testutils"] }
+soroban-sdk = { version = "20.0.0", features = ["testutils"] }
 
 [lib]
 crate-type = ["cdylib"]
